@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Inline JS</title>
-</head>
-<body>
-<script>
-    // JavaScript code goes here
-</script>
-</body>
-</html>
+console.log("Hello from external JavaScript");
+alert("Welcome to my Website!");
+let userInput = prompt('What is your favorite color?');
+console.log('The user entered: ' + userInput);
+alert("Great, " + userInput + " is my favorite color too.!");
