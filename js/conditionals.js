@@ -65,22 +65,22 @@
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
 
-function analyzeColor(color) {
-    switch (color) {
-        case 'blue':
-            return 'blue' + " is the color of the sky.";
-            break;
-        case 'red' :
-            return 'red' + " is the color of strawberries.";
-            break;
-        case 'pink' :
-            return 'pink' + " is the color of my hair!"
-            break; //if you don't add the break, the cases and alerts will just keep going
-        default:
-            return color + " BOO!";
-            break;
-    }
-}
+// function analyzeColor(color) {
+//     switch (color) {
+//         case 'blue':
+//             return 'blue' + " is the color of the sky.";
+//             break;
+//         case 'red' :
+//             return 'red' + " is the color of strawberries.";
+//             break;
+//         case 'pink' :
+//             return 'pink' + " is the color of my hair!"
+//             break; //if you don't add the break, the cases and alerts will just keep going
+//         default:
+//             return color + " BOO!";
+//             break;
+//     }
+// }
 
 
 /**
@@ -90,21 +90,12 @@ function analyzeColor(color) {
  * function to show it to the user.
  */
 
-let colorQuestion = prompt("Welcome! Please input a color: ");
-console.log("The user entered: " + analyzeColor(colorQuestion));
-let favoriteColor = analyzeColor(colorQuestion);
-alert(favoriteColor);
+// let colorQuestion = prompt("Welcome! Please input a color: ");
+// console.log("The user entered: " + analyzeColor(colorQuestion));
+// let favoriteColor = analyzeColor(colorQuestion);
+// alert(favoriteColor);
 
-//possible ideas:
-//alert(analyzeColor(favoriteColor));
-//alert(analyzeColor(favoriteColor);
-//alert(returnColor);
 //alert is a function in itself. return gives you the output you want in the data type you want
-
-
-
-
-
 
 
 
@@ -129,6 +120,50 @@ alert(favoriteColor);
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+// function calculateTotal(luckyNumber, totalAmount) {
+//     if (luckyNumber === 0) {
+//         return "Sorry! No discount" + " your total is $" + totalAmount;
+//     }else if (luckyNumber === 1){
+//         return totalAmount * .10;
+//     }else if (luckyNumber === 2){
+//         return totalAmount * .25;
+//     }else if (luckyNumber === 3){
+//         return totalAmount * .35;
+//     }else if (luckyNumber === 4){
+//         return totalAmount * .50;
+//     }else if (luckyNumber === 5){
+//         return "You get $" +  + totalAmount * 1 + " off" + " Congrats! You get everything for FREE!";
+//     }else {
+//         return "Sorry! Better luck next time!"
+//     }
+//
+// }
+//switch case function more appropriate for this problem
+
+
+function calculateTotal(luckyNumber, totalAmount) {
+    switch (luckyNumber) {
+        case 0:
+            return "Sorry! No discount awarded :("
+            break;
+        case 1:
+            return "Congrats! You get a discount of $" + (totalAmount * .10) + "!" + " You're new total is $" + (totalAmount-(totalAmount * .10));
+            break;
+        case 2:
+            return "Congrats! You get a discount of $" + (totalAmount * .25) + "!" + " You're new total is $" + (totalAmount-(totalAmount * .25));
+            break;
+        case 3:
+            return "Congrats! You get a discount of $" + (totalAmount * .35) + "!" + " You're new total is $" + (totalAmount-(totalAmount * .35));
+        case 4:
+            return "Congrats! You get a discount of $" + (totalAmount * .50) + "!" + " You're new total is $" + (totalAmount-(totalAmount * .50));
+        case 5:
+            return "Congrats! You get a discount of $" + (totalAmount * 1) + "!" + " You're new total is $" + (totalAmount-(totalAmount * 1));
+        default:
+            return "Sorry! Better luck next time!";
+            break;
+    }
+}
+
 
 /**
  * TODO:
@@ -139,7 +174,7 @@ alert(favoriteColor);
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
 
 /**
  * TODO:
@@ -159,3 +194,5 @@ alert(favoriteColor);
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+
