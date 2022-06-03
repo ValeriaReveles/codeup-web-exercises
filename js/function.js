@@ -10,8 +10,7 @@
  */
 
 function sayHello(name) {
-    let output = "Hello " + name;
-    return output; //can make it as an alert instead of console.log
+    return "Hello, " + name; //don't need to repeat yourself by adding an output if you can just use return "message" + (input)
 
 }
 
@@ -23,7 +22,7 @@ function sayHello(name) {
  * console.log 'helloMessage' to check your work
  */
 
-sayHello("Valeria")
+//sayHello("Valeria");
 let helloMessage = sayHello("Valeria")
 console.log(helloMessage)
 
@@ -115,6 +114,7 @@ alert("Tip is $" + sumNum + " !") //only shows result as an alert and not on the
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
 function applyDiscount(originalPrice, discountPercentage) {
     var discountedAmount = originalPrice * discountPercentage;
     var finalPrice = originalPrice - discountedAmount;
