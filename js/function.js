@@ -92,13 +92,13 @@ function calculateTip(tipPercentage, totalBill) {
   * then display the dollar amount they should tip
   */
 
-// let customerTip = prompt("Please enter desired tip percent: ")
-// console.log("Customer entered: " + customerTip);
-// let customerTotal = prompt("Please enter your total bill amount: ")
-// console.log("Customer entered: " + customerTotal);
-// let sumNum = customerTip * customerTotal
-// //console.log(sumNum) shows result in console
-// alert("Tip is $" + sumNum + " !") //only shows result as an alert and not on the console
+let customerTip = prompt("Please enter desired tip percent: ")
+console.log("Customer entered: " + customerTip);
+let customerTotal = prompt("Please enter your total bill amount: ")
+console.log("Customer entered: " + customerTotal);
+let sumNum = customerTip * customerTotal
+console.log(sumNum) shows result in console
+alert("Tip is $" + sumNum + " !") //only shows result as an alert and not on the console
 
 
 /**
