@@ -23,22 +23,21 @@
  * console.logging the function's return value
  */
 
-function analyzeColor(color) {
-    if (color === 'blue') {
-        return 'blue' + " is the color of the sky.";
-    }else if (color === 'red'){
-        return 'red' + " is the color of strawberries.";
-    }else if (color === 'pink'){
-        return 'pink' + " is the color of my hair.";
-    }else {
-        return color + " BOO!"
-    }
-}
-console.log("Color exercises: ")
-console.log(analyzeColor('blue'));
-console.log(analyzeColor('red'));
-console.log(analyzeColor('pink'));
+// function analyzeColor(color) {
+//     if (color === 'blue') {
+//         return 'blue' + " is the color of the sky.";
+//     }else if (color === 'red'){
+//         return 'red' + " is the color of strawberries.";
+//     }else if (color === 'pink'){
+//         return 'pink' + " is the color of my hair.";
+//     }else {
+//         return color + " BOO!"
+//     }
+// }
 
+// console.log(analyzeColor('blue'));
+// console.log(analyzeColor('red'));
+// console.log(analyzeColor('pink'));
 
 
 
@@ -47,18 +46,42 @@ console.log(analyzeColor('pink'));
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+//var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+//var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+//can add function to variable then add that variable to the function on the log
+//console.log(analyzeColor(randomColor));
+
+
 
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+
+function analyzeColor(color) {
+    switch (color) {
+        case 'blue':
+            return 'blue' + " is the color of the sky.";
+            break;
+        case 'red' :
+            return 'red' + " is the color of strawberries.";
+            break;
+        case 'pink' :
+            return 'pink' + " is the color of my hair!"
+            break; //if you don't add the break, the cases and alerts will just keep going
+        default:
+            return color + " BOO!";
+            break;
+    }
+}
+
 
 /**
  * TODO:
@@ -66,6 +89,24 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+let colorQuestion = prompt("Welcome! Please input a color: ");
+console.log("The user entered: " + analyzeColor(colorQuestion));
+let favoriteColor = analyzeColor(colorQuestion);
+alert(favoriteColor);
+
+//possible ideas:
+//alert(analyzeColor(favoriteColor));
+//alert(analyzeColor(favoriteColor);
+//alert(returnColor);
+//alert is a function in itself. return gives you the output you want in the data type you want
+
+
+
+
+
+
+
 
 /* ########################################################################## */
 
