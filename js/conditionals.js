@@ -23,21 +23,25 @@
  * console.logging the function's return value
  */
 
-// function analyzeColor(color) {
-//     if (color === 'blue') {
-//         return 'blue' + " is the color of the sky.";
-//     }else if (color === 'red'){
-//         return 'red' + " is the color of strawberries.";
-//     }else if (color === 'pink'){
-//         return 'pink' + " is the color of my hair.";
-//     }else {
-//         return color + " BOO!"
-//     }
-// }
+function analyzeColor(color) {
+    //let message = "";
+    //color = color.toLowerCase(); //to force the word in a lower case or upper fed. Controls how user inputs data
+    if (color === 'blue') {
+        return 'blue' + " is the color of the sky.";
+        //message = "Blue is the color of the sky
+    }else if (color === 'red'){
+        return 'red' + " is the color of strawberries.";
+    }else if (color === 'pink'){
+        return 'pink' + " is the color of my hair.";
+    }else {
+        return color + " Sorry, I'll have to look up that color!"
+    }
+    //return message
+}
 
-// console.log(analyzeColor('blue'));
-// console.log(analyzeColor('red'));
-// console.log(analyzeColor('pink'));
+console.log(analyzeColor('blue'));
+console.log(analyzeColor('red'));
+console.log(analyzeColor('pink'));
 
 
 
@@ -46,8 +50,8 @@
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-//var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-//var randomColor = colors[Math.floor(Math.random() * colors.length)];
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 
 /**
@@ -56,7 +60,7 @@
  * You should see a different message every time you refresh the page
  */
 //can add function to variable then add that variable to the function on the log
-//console.log(analyzeColor(randomColor));
+console.log(analyzeColor(randomColor));
 
 
 
@@ -64,23 +68,23 @@
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
-
-// function analyzeColor(color) {
-//     switch (color) {
-//         case 'blue':
-//             return 'blue' + " is the color of the sky.";
-//             break;
-//         case 'red' :
-//             return 'red' + " is the color of strawberries.";
-//             break;
-//         case 'pink' :
-//             return 'pink' + " is the color of my hair!"
-//             break; //if you don't add the break, the cases and alerts will just keep going
-//         default:
-//             return color + " BOO!";
-//             break;
-//     }
-// }
+//can add console log to see what the color is console.log("the color is" + color)
+function analyzeColor(color) {
+    switch (color) {
+        case 'blue':
+            return 'blue' + " is the color of the sky.";
+            break;
+        case 'red' :
+            return 'red' + " is the color of strawberries.";
+            break;
+        case 'pink' :
+            return 'pink' + " is the color of my hair!"
+            break; //if you don't add the break, the cases and alerts will just keep going
+        default:
+            return color + " BOO!";
+            break;
+    }
+}
 
 
 /**
@@ -90,13 +94,13 @@
  * function to show it to the user.
  */
 
-// let colorQuestion = prompt("Welcome! Please input a color: ");
-// console.log("The user entered: " + analyzeColor(colorQuestion));
-// let favoriteColor = analyzeColor(colorQuestion);
-// alert(favoriteColor);
+let colorQuestion = prompt("Welcome! Please input a color: ");
+console.log("The user entered: " + analyzeColor(colorQuestion));
+alert(analyzeColor(colorQuestion));
+//alert(favoriteColor); do not need the extra variable if you just put the colorQuestion variable directly to the alert
+//can do it like alert(analyzeColor(colorQuestion)
 
 //alert is a function in itself. return gives you the output you want in the data type you want
-
 
 
 /* ########################################################################## */
@@ -120,6 +124,7 @@
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+
 // function calculateTotal(luckyNumber, totalAmount) {
 //     if (luckyNumber === 0) {
 //         return "Sorry! No discount" + " your total is $" + totalAmount;
