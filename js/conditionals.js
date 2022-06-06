@@ -186,7 +186,7 @@ var luckyNumber = Math.floor(Math.random() * 6);
  * - what the number plus 100 is
  * - if the number is negative or positive
  *
- * Do *NOT* display any of the above information
+ * Do *NOT* display any of the above information //lets me know not to console.log it(??)
  * if the user enters a value that is not of the number data type.
  * Instead, use an alert to inform them of the incorrect input data type.
  *
@@ -204,25 +204,56 @@ var luckyNumber = Math.floor(Math.random() * 6);
 // let userInput = prompt("Please enter a number.")
 // console.log('The user entered: ' + userInput);
 
-let enterNumber = confirm('Would you like to enter a number?');
- if (enterNumber) {
-    prompt("Please enter a number.");
-    let userInput =
-            alert("Your number is even!")
+var enterNumber = confirm("Would you like to enter a number?");//can use confirm instead of prompt to give me a boolean value of true or false instead of asking for prompt and then asking to confirm.
+
+if (enterNumber) {
+    var userNumber =  parseFloat(prompt("Please enter a number: "));
+    if (isNaN(userNumber)) {
+        alert("Sorry that is not a number. Try again");
+    } else {
+        if (userNumber % 2 === 0) {
+            alert("Your number is even!");
+        } else {
+            alert("Your number is odd!");
         }
- } else {
-     alert("Maybe next time!");
- }
+        if (userNumber > 0) {
+            alert("Your number is a positive one!");
+        } else {
+            alert("Your number is a negative one!");
+        }
+        alert(userNumber + 100 + " this is what your number would be when I add 100 to it.");
+    }
+} else {
+    alert("Maybe next time!");
+}
 
+//var numberEntry;
 
-
-
-// let enterNumber = prompt("Would you like to enter a number?");
-//
-// if (pizzaPreference === "pineapple and hot sauce") {
-//     alert("What a coincidence, that's my favorite!");
-// } else if (pizzaPreference === "cheese") {
-//     alert("Just plain cheese? Okay...");
-// } else {
-//     alert(pizzaPreference + " isn't my favorite, but let's order some!");
+// function isOddOrEven (numberEntry) {
+//     return (numberEntry % 2 === 0) ? "This number is even." : "This number is odd.";
 // }
+//
+// function isNegativeOrPostive(numberEntry) {
+//     return (numberEntry > 0) ? "This number is positive." : "This number is negative";
+// }
+//
+// function plus100 (numberEntry) {
+//     return "Your number is " + (parseFloat(numberEntry) + 100) + " if we added 100."
+// }
+//
+// if(participate) {
+//     numberEntry = prompt("Please enter a number.")
+//     if (isNaN(numberEntry)) {
+//         alert("Sorry, what you entered is not a number.");
+//     } else {
+//         alert(isOddOrEven(numberEntry));
+//         alert(isNegativeOrPostive(numberEntry));
+//         alert(plus100(numberEntry));
+//
+//     }
+// } else {
+//     alert("Maybe next time!")
+// }
+
+
+
