@@ -127,23 +127,21 @@ alert(analyzeColor(colorQuestion));
 
 // function calculateTotal(luckyNumber, totalAmount) {
 //     if (luckyNumber === 0) {
-//         return "Sorry! No discount" + " your total is $" + totalAmount;
+//         return totalAmount;
 //     }else if (luckyNumber === 1){
-//         return totalAmount * .10;
+//         return totalAmount - (totalAmount * .10);
 //     }else if (luckyNumber === 2){
-//         return totalAmount * .25;
+//         return totalAmount - (totalAmount * .25);
 //     }else if (luckyNumber === 3){
-//         return totalAmount * .35;
+//         return totalAmount - (totalAmount * .35);
 //     }else if (luckyNumber === 4){
-//         return totalAmount * .50;
+//         return totalAmount - (totalAmount * .50);
 //     }else if (luckyNumber === 5){
-//         return "You get $" +  + totalAmount * 1 + " off" + " Congrats! You get everything for FREE!";
-//     }else {
-//         return "Sorry! Better luck next time!"
+//         return 0 + "You get everything for FREE!";
 //     }
 //
 // }
-//switch case function more appropriate for this problem
+//switch case function more appropriate for this problem it seems, but can need to better use math on functions
 
 
 function calculateTotal(luckyNumber, totalAmount) {
@@ -181,6 +179,11 @@ function calculateTotal(luckyNumber, totalAmount) {
 // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
 
+let userTotal = prompt ("Hello! Please enter your total bill!");
+
+alert("Wow! Today you drew a lucky number of " + luckyNumber + " your total today was $:" + userTotal + ". That means you owe us " + calculateTotal(luckyNumber, userTotal));
+
+
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -196,7 +199,7 @@ var luckyNumber = Math.floor(Math.random() * 6);
  * Instead, use an alert to inform them of the incorrect input data type.
  *
  *
- * Can you refactor your code to use functions?
+ * Can you refactor your code to use functions? //can wrap it all as a giant function instead of making another one
  * HINT: The way we prompt for a value could be improved
  */
 
@@ -211,27 +214,30 @@ var luckyNumber = Math.floor(Math.random() * 6);
 
 var enterNumber = confirm("Would you like to enter a number?");//can use confirm instead of prompt to give me a boolean value of true or false instead of asking for prompt and then asking to confirm.
 
-if (enterNumber) {
-    var userNumber =  parseFloat(prompt("Please enter a number: "));
-    if (isNaN(userNumber)) {
-        alert("Sorry that is not a number. Try again");
+function numberGame () {
+    if (enterNumber) {
+        //let userNum = instructor used isNaN with Number instead of parseFloat
+        var userNumber = parseFloat(prompt("Please enter a number: "));
+        if (isNaN(userNumber)) {
+            alert("Sorry that is not a number. Try again");
+        } else {
+            if (userNumber % 2 === 0) {
+                alert("Your number is even!");
+            } else {
+                alert("Your number is odd!");
+            }
+            if (userNumber >= 0) { //include equal sign since zero is a positive integer
+                alert("Your number is a positive one!");
+            } else {
+                alert("Your number is a negative one!");
+            }
+            alert(userNumber + 100 + " this is what your number would be when I add 100 to it.");
+        }
     } else {
-        if (userNumber % 2 === 0) {
-            alert("Your number is even!");
-        } else {
-            alert("Your number is odd!");
-        }
-        if (userNumber > 0) {
-            alert("Your number is a positive one!");
-        } else {
-            alert("Your number is a negative one!");
-        }
-        alert(userNumber + 100 + " this is what your number would be when I add 100 to it.");
-    }
-} else {
-    alert("Maybe next time!");
-}
+        alert("Maybe next time!");
 
+    }
+}
 //var numberEntry;
 
 // function isOddOrEven (numberEntry) {
