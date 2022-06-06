@@ -195,4 +195,34 @@ var luckyNumber = Math.floor(Math.random() * 6);
  * HINT: The way we prompt for a value could be improved
  */
 
+// the following line will show the OK/CANCEL confirm dialog
+// let enterNumber = prompt('Would you like to enter a number?');
+// let confirmed = enterNumber == true;
+// console.log("User input:");
+// console.log(confirmed); // will be either true or false
+// if ()
+// let userInput = prompt("Please enter a number.")
+// console.log('The user entered: ' + userInput);
 
+let enterNumber = confirm('Would you like to enter a number?');
+ if (enterNumber) {
+    prompt("Please enter a number.");
+    let userInput =
+            alert("Your number is even!")
+        }
+ } else {
+     alert("Maybe next time!");
+ }
+
+
+
+
+// let enterNumber = prompt("Would you like to enter a number?");
+//
+// if (pizzaPreference === "pineapple and hot sauce") {
+//     alert("What a coincidence, that's my favorite!");
+// } else if (pizzaPreference === "cheese") {
+//     alert("Just plain cheese? Okay...");
+// } else {
+//     alert(pizzaPreference + " isn't my favorite, but let's order some!");
+// }
