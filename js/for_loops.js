@@ -29,8 +29,8 @@ function getRandomInt(min, max) {
 // var number; don't need to repetitive with your code
 
 for(var i = 0; i < 10; i++) {
-    number = getRandomInt(20, 200);
-    message = "";
+ let number = getRandomInt(20, 200);
+ let message = "";
     if(number % 2 === 0) {
         message = " is even";
     } else {
