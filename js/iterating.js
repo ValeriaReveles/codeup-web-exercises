@@ -6,6 +6,8 @@
      * Create an array of 4 people's names and store it in a variable called
      * 'names'.
      */
+    var names = ["Jairo", "Alexis", "Valeria", "Dino"];
+    console.log(names);
 
     /**
      * TODO:
@@ -13,11 +15,19 @@
      * array.
      */
 
+    console.log(names.length);
+
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
+
+    console.log('There are ' + names.length + 'names in the array.');
+    console.log('The first name is: ' + names[0]);
+    console.log('The second name is: ' + names[1]);
+    console.log('The third name is: ' + names[2]);
+    console.log('The fourth name is: ' + names[3]);
 
     /**
      * TODO:
@@ -25,10 +35,20 @@
      * array.
      */
 
+    for (let i = 0; i < names.length; i++){
+        console.log("The name at index " + i + " is: " + names[i]);
+    }
+
+
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
+
+    names.forEach(function (name,index){
+        console.log("Array names are as follows: [" + index + "] " + name);
+    })
+
 
     /**
      * TODO:
@@ -43,5 +63,22 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
+
+
+    function firstName (first) {
+       return console.log("The name in the first index of the array is: " + first[0]);
+    }
+    firstName(names)
+
+    function secondName (second) {
+        return console.log("The name in the second index of the array is: " + second[2]);
+    }
+    secondName(names);
+
+    function lastName (last) {
+        return console.log("The name in the second index of the array is: " + last[3]);
+    }
+    lastName(names);
+
 
 })();
