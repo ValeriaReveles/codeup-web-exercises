@@ -28,11 +28,16 @@
     // var planetsArray1 = planetsArray.join(" \n ");
     // console.log(planetsArray1); //shows result in the javascript console.
 
-    document.write(planetsArray.join('<br>')); // shows it on the actual web page.
+    //
 
-    //Bonus:
-    document.write('<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>');
+    let breakPlanets = planetsArray.join("<br/>");
+    console.log(breakPlanets);
 
+    //bonus:
+    let newPlanets = planetsArray.join('<ul><li>' +
+        '</li>' + '<li></li>' + '<li></li>');
+
+    //document.write('<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>');
 
 
 })();
