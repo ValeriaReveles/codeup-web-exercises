@@ -39,6 +39,7 @@
         console.log("The name at index " + i + " is: " + names[i]);
     }
 
+    //can use console.log(names[i]); instead of the log you have above.
 
     /**
      * TODO:
@@ -47,6 +48,8 @@
 
     names.forEach(function (name,index){
         console.log("Array names are as follows: [" + index + "] " + name);
+
+        //easier if you just do console.log(name + " at index " + index); instead of what you have.
     })
 
 
@@ -67,6 +70,7 @@
 
     function firstName (first) {
        return console.log("The name in the first index of the array is: " + first[0]);
+       //can do return arr[0] or first in your chosen array. For example: names[0]. Examples do not show console.log,instead show result.
     }
     firstName(names)
 
@@ -77,8 +81,10 @@
 
     function lastName (last) {
         return console.log("The name in the second index of the array is: " + last[3]);
+        //return arr[arr.length -1]
     }
     lastName(names);
+
 
 
 })();

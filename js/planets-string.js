@@ -34,10 +34,10 @@
     console.log(breakPlanets);
 
     //bonus:
-    let newPlanets = planetsArray.join('<ul><li>' +
-        '</li>' + '<li></li>' + '<li></li>');
+    // let newPlanets = planetsArray.join('<ul><li>' +
+    //     '</li>' + '<li></li>' + '<li></li>');
 
-    //document.write('<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>');
+    document.write('<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>');
 
 
 })();
