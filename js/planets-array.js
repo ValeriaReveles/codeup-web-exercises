@@ -1,16 +1,10 @@
+
+// let planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']; //Need it outside of function if want to be able to recall it globally.
+
 (function(){
     "use strict";
 
-    var planets = [
-        'Mercury',
-        'Venus',
-        'Earth',
-        'Mars',
-        'Jupiter',
-        'Saturn',
-        'Uranus',
-        'Neptune'
-    ];
+    let planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']; //declare inside function in order to be able to recall it within function, but will not be able to recall var outside of function.
 
     /**
      * TODO:
