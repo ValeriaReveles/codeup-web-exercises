@@ -11,7 +11,7 @@
      * console.log planetsArray to check your work
      */
 
-    // console.log(planetsArray);
+    console.log(planetsArray);
 
     /**
      * TODO:
@@ -23,6 +23,10 @@
      * Create another string that would display your planets in an undordered
      * list. You will need an opening AND closing <ul> tags around the entire
      * string, and <li> tags around each planet.
+     *
+     *
+     * Instructor did the following:
+     *
      */
 
     // var planetsArray1 = planetsArray.join(" \n ");
@@ -30,13 +34,13 @@
 
     //
 
-    let breakPlanets = planetsArray.join("<br/>");
+    let breakPlanets = planetsArray.join("<br>");
     console.log(breakPlanets);
 
     //bonus:
     // let newPlanets = planetsArray.join('<ul><li>' +
     //     '</li>' + '<li></li>' + '<li></li>');
-
+//add something to start and something at the end.
     document.write('<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>');
 
 
