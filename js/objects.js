@@ -56,6 +56,7 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+
     var shoppers = [
         {name: 'Cameron', amount: 180},
         {name: 'Ryan', amount: 250},
@@ -64,12 +65,15 @@
 
     shoppers.forEach(function (item,index){
         if(item.amount < 200){
-            console.log("Sorry! No discount today. Your total is: " + item.amount);
+            console.log("Sorry! No discount today. You only spent " + item.amount + "Your total is: " + item.amount);
         }else{
             console.log("Congrats " + item.name + "! You spent: " + index.amount + ". You get a 12% discount. Your new total is: " + (item.amount-(item.amount * .12)));
         }
 
     });
+
+
+
 
     //Worked, but instructions called for an if else and for each function to be used.
     // console.log("Sorry " + shoppers[0].name + "! You spent: " + shoppers[0].amount + ". You do not get a discount today. Your total is: " + shoppers[0].amount + ".");
@@ -93,28 +97,32 @@
 
 
     let books = [{
-        title: "Narnia",
+        title: " Narnia ",
         author:{
             firstName: "CS",
-            lastName: "Lewis"}},
-        { title: "Code Name Villanelle",
+            lastName: " Lewis"}},
+        { title: " Code Name Villanelle ",
           author:{
-            firtName: "Luke",
-            lastName: "Jennings"}},
-        { title: "Neuromancer",
+            firstName: "Luke",
+            lastName: " Jennings"}},
+        { title: " Neuromancer: ",
           author: {
             firstName: "William",
-            lastName: "Gibbons"}},
-        { title: "The Girl With The Dragon Tattoo",
+            lastName: " Gibbons"}},
+        { title: " The Girl With The Dragon Tattoo ",
           author: {
             firstName: "Stieg",
-            lastName: "Larsson"}},
-
-
-
-          }
-    }
+            lastName: " Larsson"}},
+        { title: " Harry Potter and the Half-Blood Prince ",
+            author:{
+                firstName: "JK",
+                lastName: " Rowling"}}
     ];
+
+     // console.log(books[3].title) // "The Salmon of Doubt"
+     // console.log(books[3].author.firstName) // "Douglas"
+     // console.log(books[3].author.lastName) // "Adams"
+
 
 
     /**
@@ -140,7 +148,6 @@
      *      Author: Stephen Hawking
      *      ---
      *      ...
-     */
 
     /**
      * Bonus:
@@ -152,5 +159,11 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    books.forEach(function (item,index){
+        console.log("Book #: " + (index + 1) + item.title + "\n" + "Author: " + item.author.firstName + item.author.lastName + "\n" + "---");
+
+
+    });
 
 })();
