@@ -12,12 +12,11 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
-    var name = {
-        firstName: "Valeria",
-        lastName: "Reveles"
-    };
+    let person = {};
+        person.firstName = "Valeria";
+        person.lastName = "Reveles";
 
-    let person = name;
+    // let person = name; Don't need it with the object format above
 
     console.log(person.firstName);
     console.log(person.lastName);
@@ -34,13 +33,9 @@
      */
 
     person.sayHello = function (){
-        console.log ("Salutations from " + person.firstName + " " + person.lastName + "!");
+        console.log (`Hello from ${person.firstName} ${person.lastName}!`); //can use string templates as opposed to typing all the string.
     };
-
-   person.sayHello();
-
-
-
+    console.log(person.sayHello());
 
 
     /** TODO:
@@ -70,9 +65,20 @@
             console.log("Congrats " + item.name + "! You spent: " + index.amount + ". You get a 12% discount. Your new total is: " + (item.amount-(item.amount * .12)));
         }
 
+
+        //instructor solution:
+        //for (let i = 0; i < shoppers.length; i ++){
+        //const shopper = shoppers[i];
+        // console.log(shoppers[i]);
+        //let outputString = `${shopper.name} ${shopper.amount}`;
+        //if(shoppers.amount > 200){
+        //let discount = shopper.amount * .12;  .toFixed limits the number of decimal spots
+        //let afterDiscountAmount = shopper.amount - discount;
+        //outputString += `${discount} ${afterDiscountAmount}`;
+        //}
+        //console.log(outputString);
+        // }
     });
-
-
 
 
     //Worked, but instructions called for an if else and for each function to be used.
@@ -97,11 +103,11 @@
 
 
     let books = [{
-        title: " Narnia ",
+        title: " Narnia: ",
         author:{
             firstName: "CS",
             lastName: " Lewis"}},
-        { title: " Code Name Villanelle ",
+        { title: " Code Name Villanelle: ",
           author:{
             firstName: "Luke",
             lastName: " Jennings"}},
@@ -109,11 +115,11 @@
           author: {
             firstName: "William",
             lastName: " Gibbons"}},
-        { title: " The Girl With The Dragon Tattoo ",
+        { title: " The Girl With The Dragon Tattoo: ",
           author: {
             firstName: "Stieg",
             lastName: " Larsson"}},
-        { title: " Harry Potter and the Half-Blood Prince ",
+        { title: " Harry Potter and the Half-Blood Prince: ",
             author:{
                 firstName: "JK",
                 lastName: " Rowling"}}
@@ -177,12 +183,17 @@
 
 
     let myBook = createBook("Neuromancer", "William Gibbons");
-
     console.log(myBook);
 
 
-     myBook = createBook("Codename: Villanelle", "Jennings");
-
+    myBook = createBook("Codename: Villanelle", "Jennings");
     console.log(myBook);
+
+    myBook = createBook("Twilight", "Katherine Gil");
+    console.log(myBook);
+
+    // function showBookInfo(bookObject){
+    //     return:
+    // }
 
 })();
