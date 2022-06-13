@@ -166,4 +166,23 @@
 
     });
 
+
+    function createBook (title, author){
+        console.log(title, author);
+        let book = {};
+        book.title = title;
+        book.author = author;
+        return book;
+    }
+
+
+    let myBook = createBook("Neuromancer", "William Gibbons");
+
+    console.log(myBook);
+
+
+     myBook = createBook("Codename: Villanelle", "Jennings");
+
+    console.log(myBook);
+
 })();
