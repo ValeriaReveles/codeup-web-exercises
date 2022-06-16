@@ -5,26 +5,28 @@ comment
 */
 
 
-#Top h1 {
+h1 {
     text-align: center;
 }
 
 h1, h2 {
-    color: yellow; /* single line comment */
+    color: rgba(211, 179, 17, 0.98); /* single line comment */
     text-decoration: underline;
 }
 
 body{
     background-color: cadetblue;
-    background-image: url(https://i.pinimg.com/originals/58/11/92/5811929475619927c2e7e1f732dc1217.jpg);
+    background-image: url(https://images.squarespace-cdn.com/content/v1/54fc8146e4b02a22841f4df7/1635685540810-W8KMAWUCKW5IB27UDSWW/999.gif);
     background-size: cover;
-    font-family: 'Roboto Condensed', sans-serif;
     font-size: 1em;
+    /*font-family: 'Tourney', cursive;*/
+    font-family: 'Audiowide', cursive;
+    /*font-family: 'Orbitron', sans-serif;*/
 }
 
 ul {
     list-style: square;
-    color: #99ff00;
+    color: rgba(202, 41, 215, 0.57);
 }
 
 ol{
@@ -34,13 +36,19 @@ ol{
     color:#B7FF00FF;
 }
 
-td{
-    color: #fdb2c0;
+.product{
+    text-align: center;
 }
 
+td{
+    color: #fdb2c0;
+    text-align: center;
+}
 tr{
     color: hotpink;
+    text-align: center;
 }
+
 
 /* unvisited link (:link) */
 a:link {
@@ -60,4 +68,16 @@ a:hover {
 /* active/selected link (:active) */
 a:active {
     color:mediumspringgreen;
+}
+
+.registered{
+    color:rgba(9, 208, 172, 0.99)
+}
+
+img{
+    opacity: 50%;
+    ali
+}
+img:hover{
+    opacity: 100%;
 }
