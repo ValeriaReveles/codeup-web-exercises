@@ -4,8 +4,60 @@ line
 comment
 */
 
-.fancy-header {
-    color: purple; /* single line comment */
+
+#Top h1 {
+    text-align: center;
+}
+
+h1, h2 {
+    color: yellow; /* single line comment */
     text-decoration: underline;
 }
 
+body{
+    background-color: cadetblue;
+    background-image: url(https://i.pinimg.com/originals/58/11/92/5811929475619927c2e7e1f732dc1217.jpg);
+    background-size: cover;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1em;
+}
+
+ul {
+    list-style: square;
+    color: #99ff00;
+}
+
+ol{
+    color: #b7ff00;
+}
+.header{
+    color:#B7FF00FF;
+}
+
+td{
+    color: #fdb2c0;
+}
+
+tr{
+    color: hotpink;
+}
+
+/* unvisited link (:link) */
+a:link {
+    color: palegreen;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color: rgba(9, 208, 172, 0.99);
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:mediumspringgreen;
+}
