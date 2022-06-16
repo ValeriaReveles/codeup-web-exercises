@@ -7,18 +7,21 @@
     <body>
     <h2>Register With Us!</h2>
         <form method="POST" action="https://request-inspector.glitch.me/">
-            <input type="text" name="email" placeholder="Enter your email address">
-            <input type="password" name="password" placeholder="Enter password">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email address">
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" placeholder="Enter password">
             <input type="submit">
         <br>
         <br>
-        <textarea name="Bio" placeholder="Personal Bio"></textarea>
+        <label for="bio">Bio</label><br>
+        <textarea id="bio" name="bio" type="textarea" placeholder="Personal Bio" rows="8" cols="30"></textarea>
         <br>
         <br>
         <br>
         <h2>How did you hear about us?</h2>
             <label for="question_1">
-                <input type="radio" name="question_1" value="billboard">Billboard<br>
+                <input type="radio" id="question_1" name="question_1" value="billboard">Billboard<br>
             </label>
             <label for="question_1">
                 <input type="radio" name="question_1" value="billboard">Radio Advertisement<br>
@@ -33,14 +36,13 @@
         <input type="submit">
         <br>
         <br>
-        <label>Select your current browser:
-        <select name="browser">
-            <option value="chrome">Chrome</option>
-            <option value="safari">Safari</option>
-            <option value="edge">Edge</option>
-            <option value="firefox">Firefox</option>
-        </select>
-        </label>
+        <label>Select your current browser:</label>
+            <select name="browser">
+                <option value="chrome">Chrome</option>
+                <option value="safari">Safari</option>
+                <option value="edge">Edge</option>
+                <option value="firefox">Firefox</option>
+            </select>
         <input type="submit">
         </form>
     </body>
