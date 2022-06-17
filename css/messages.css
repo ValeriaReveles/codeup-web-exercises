@@ -8,36 +8,40 @@ body, html {
 .message-info{
     background-color: rgba(120, 166, 248, 0.71);
     color: blue;
-    border: gray;
     margin: 10px;
     padding: 4px;
+    border-radius: 5px;
+    border: lightgray solid;
 
 }
 
 .message-success{
     background-color: rgba(148, 227, 148, 0.71);
-    border: gray;
     margin: 10px;
     padding: 4px;
     color: green;
+    border-radius: 5px;
+    border: lightgray solid;
 
 }
 
 .message-warning{
     background-color: rgba(255, 255, 111, 0.9);
     color: #ccb84a;
-    border: gray;
     margin: 10px;
     padding: 4px;
+    border-radius: 5px;
+    border: lightgray solid;
 
 }
 
 .message-error{
     background-color: rgba(250, 165, 193, 0.81);
-    border: gray;
     margin: 10px;
     padding: 4px;
     color: #963a3a;
+    border-radius: 5px;
+    border: lightgray solid;
 
 }
 
