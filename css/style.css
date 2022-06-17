@@ -10,7 +10,7 @@ h1 {
 }
 
 h1, h2 {
-    color: rgba(211, 179, 17, 0.98); /* single line comment */
+    color: rgba(231, 203, 63, 0.98); /* single line comment */
     text-decoration: underline;
 }
 
@@ -26,26 +26,27 @@ body{
 
 ul {
     list-style: square;
-    color: rgba(202, 41, 215, 0.57);
+    color: #fdb2c0;
 }
 
 ol{
-    color: #b7ff00;
+    color: #fdb2c0;
 }
 .header{
-    color:#B7FF00FF;
+    color:#fdb2c0;
 }
 
-.product{
+.product h2{
     text-align: center;
+    color: palegreen;
 }
 
 td{
-    color: #fdb2c0;
+    color: mediumspringgreen;
     text-align: center;
 }
 tr{
-    color: hotpink;
+    color: deepskyblue;
     text-align: center;
 }
 
@@ -57,7 +58,7 @@ a:link {
 
 /* visited link (:visited) */
 a:visited {
-    color:black;
+    color:deepskyblue;
 }
 
 /* mouse hover over link (:hover) */
