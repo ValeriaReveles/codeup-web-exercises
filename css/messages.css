@@ -5,11 +5,12 @@ body, html {
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
 }
+
 .message-info{
     background-color: rgba(120, 166, 248, 0.71);
     color: blue;
     margin: 10px;
-    padding: 4px;
+    padding: 10px;
     border-radius: 5px;
     border: lightgray solid;
 
@@ -18,7 +19,7 @@ body, html {
 .message-success{
     background-color: rgba(148, 227, 148, 0.71);
     margin: 10px;
-    padding: 4px;
+    padding: 10px;
     color: green;
     border-radius: 5px;
     border: lightgray solid;
@@ -29,7 +30,7 @@ body, html {
     background-color: rgba(255, 255, 111, 0.9);
     color: #ccb84a;
     margin: 10px;
-    padding: 4px;
+    padding: 10px;
     border-radius: 5px;
     border: lightgray solid;
 
@@ -38,7 +39,7 @@ body, html {
 .message-error{
     background-color: rgba(250, 165, 193, 0.81);
     margin: 10px;
-    padding: 4px;
+    padding: 10px;
     color: #963a3a;
     border-radius: 5px;
     border: lightgray solid;
