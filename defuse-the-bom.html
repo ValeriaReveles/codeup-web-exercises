@@ -20,13 +20,14 @@
     function updateTimer() {
         if (detonationTimer == 0) {
             alert('EXTERMINATE!');
-            document.body.innerHTML = '';
+            document.body.innerHTML = 'WASTED!';
         } else if (detonationTimer > 0) {
             document.getElementById('timer').innerHTML = detonationTimer;
         }
 
         detonationTimer--;
     }
+
     const timer = window.setInterval(updateTimer, 1000);
 
     // TODO: When this function runs, it needs to
