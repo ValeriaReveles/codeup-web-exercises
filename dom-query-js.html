@@ -5,7 +5,12 @@
     <title>DOM: Query and Modify</title>
 </head>
 <body>
-
+<button id="btn1">Change Header</button>
+<button id="btn2">Change SubHeader Color</button>
+<button id="btn3">Change List</button>
+<button id="btn4">Item 1!</button>
+<button id="btn5">Change Paragraph</button>
+<br>
 <h1 id="main-header">Hello World!</h1>
 <ul>
     <li data-dbid="1">Item 1</li>
@@ -28,47 +33,102 @@
 <script>
     (function() {
         "use strict";
-        // TODO: Uncomment next line and get the main header element by id
+
         var mainHeader = document.getElementById('main-header');
-        console.log(mainHeader);
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool!";
-        console.log(mainHeader.innerHTML);
 
+        var listener = function () {
+            mainHeader.innerHTML = "JavaScript is Cool!";
+        }
+        document.getElementById('btn1').addEventListener('click',listener);
 
-        // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
-        console.log(subHeader.innerHTML);
-        // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = 'blue';
 
+        var subBlue = function (){
+            subHeader.style.color = 'blue';
+        }
+        document.getElementById('btn2').addEventListener('click',subBlue);
 
-        // TODO: Uncomment the next line and get all list items
-            var listItems = document.querySelectorAll('li');
-            console.log(listItems);
-        // TODO: Set text color on every other list item to grey
+        var listItems = document.querySelectorAll('li');
+
+        var greyList = function (){
             for(let i = 0; i < listItems.length; i++){
-                if(i % 2 === 0){
-                    listItems[i].style.color = 'grey';
-                }
-            }
+                        if(i % 2 === 0){
+                            listItems[i].style.color = 'grey';
+                        }
+                    }
+        }
 
-        // TODO: Set text color of li with data-dbid = 1 to blue
+        document.getElementById('btn3').addEventListener('click',greyList);
+
         var dataBlue = document.getElementsByTagName('li')[0];
+
+        var firstBlue = function (){
             dataBlue.style.color = 'blue';
+        }
 
+        document.getElementById('btn4').addEventListener('click',firstBlue);
 
-
-
-
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraphs = document.getElementsByClassName('sub-paragraph') ;
-        console.log(subParagraphs);
-
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         var subParagraph = document.getElementsByClassName('sub-paragraph');
-        subParagraph[0].innerHTML = 'Mission Accomplished!';
-        console.log(subParagraph[0]);
+
+        var missionComplete = function (){
+            subParagraph[0].innerHTML = 'Mission Accomplished!';
+        }
+
+        document.getElementById('btn5').addEventListener('click',missionComplete);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var mainHeader = document.getElementById('main-header');
+        // console.log(mainHeader);
+        // // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        // mainHeader.innerHTML = "JavaScript is Cool!";
+        // console.log(mainHeader.innerHTML);
+        //
+        //
+        // // TODO: Uncomment the next line and get the sub header element by id
+        // var subHeader = document.getElementById('sub-header');
+        // console.log(subHeader.innerHTML);
+        // // TODO: Set the text color of subHeader to blue
+        // subHeader.style.color = 'blue';
+        //
+        //
+        // // TODO: Uncomment the next line and get all list items
+        //     var listItems = document.querySelectorAll('li');
+        //     console.log(listItems);
+        // // TODO: Set text color on every other list item to grey
+        //     for(let i = 0; i < listItems.length; i++){
+        //         if(i % 2 === 0){
+        //             listItems[i].style.color = 'grey';
+        //         }
+        //     }
+        //
+        // // TODO: Set text color of li with data-dbid = 1 to blue
+        // var dataBlue = document.getElementsByTagName('li')[0];
+        //     dataBlue.style.color = 'blue';
+        //
+        // // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        // var subParagraphs = document.getElementsByClassName('sub-paragraph') ;
+        // console.log(subParagraphs);
+        //
+        // // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        // var subParagraph = document.getElementsByClassName('sub-paragraph');
+        // subParagraph[0].innerHTML = 'Mission Accomplished!';
+        // console.log(subParagraph[0]);
 
 
     })();
