@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Konami Code</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/contra.css">
+  </head>
+  <body class="layer-1">
+    <h1>Contra</h1>
+
+    <p>Consider Yourself A Hero.</p>
+
+
+    <div class="parallax">
+      <div class="parallax__layer parallax__layer--deep">
+        <div class="background"></div>
+      </div>
+      <div class="parallax__layer parallax__layer--back">
+        <div class="background"></div>
+      </div>
+      <div class="parallax__layer parallax__layer--base">
+        <div class="background"></div>
+      </div>
+    </div>
+    <footer id="footer">
+      <p>Enter Code to Level Up!</p>
+    </footer>
+
+
+    <script>
+        "use strict";
+
+        (function() {
+          document.addEventListener("DOMContentLoaded", function () {
+            // any JS in here will start executing AFTER the DOM loads
+
+            // globals that keep track of the buttons top and left position values
+            // let top = 5;
+            // let left = 5;
+
+            let keys = {
+              37: "left",
+              38: "up",
+              39: "right",
+              40: "down",
+              65: "a",
+              66: "b",
+              13: "enter"
+            };
+
+            const konamiCode = ["up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "enter"];
+
+            document.addEventListener("keydown", checkCode, false);
+
+            let keyCount = 0;
+            let timerId;
+
+            function checkCode(event){
+              let keyPressed = keys[event.keyCode];
+
+              if(keyPressed === konamiCode[keyCount]) {
+                keyCount++;
+
+                window.clearTimeout(timerId);
+
+                timerId = window.setTimeout(resetKeyState, 1000);
+
+                if (keyCount === konamiCode.length) {
+                  cheatCodeActivated();
+                  resetKeyState();
+                }
+              }else{
+                resetKeyState();
+              }
+            }
+
+            function cheatCodeActivated(){
+              alert("Cheat Code Activated: Level Up!")
+            }
+
+            function resetKeyState(){
+              console.log("Resetting state!")
+              keyCount = 0;
+              window.clearTimeout(timerId);
+            }
+
+            document.addEventListener("keyup", function(event) {
+              console.log(event.keyCode);
+            });
+          });
+        })();
+    </script>
+
+  </body>
+</html>
