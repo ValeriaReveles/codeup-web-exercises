@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Teko:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            align-content: center;
+            font-family: 'Teko', sans-serif;
+            /*-webkit-text-stroke:1px white;*/
+            color: yellow;
+            background-image: url("https://w.wallha.com/ws/13/g7Sjah4A.jpg");
+            background-size: cover;
+        }
+        h3{
+           text-align: center;
+           margin: 0.5em;
+           font-size: 1.5em;
+        }
+
+        hr{
+            box-shadow: inset 0 0 0.1em 0 yellow, 0 0 0.1em yellow;
+            background-color: deeppink;
+            border: none;
+            height:2px;
+        }
+
+        dl{
+            text-align: left;
+            font-size: 1em;
+            /*margin: 1em;*/
+            /*padding: 1em;*/
+        }
+
+        li{
+            font-size: 1.2em;
+            color: #FFA274;
+        }
+
+        .invisible {
+            /*visibility: hidden;*/
+            /*!*display: none;*!*/
+            font-size: 1.2em;
+            color: #FFA274;
+        }
+
+        .quest{
+            font-size: 23px;
+        }
+
+        .neon-button{
+            font-family: 'Teko', sans-serif;
+            font-size: 2em;
+            /*-webkit-text-stroke: 1px powderblue;*/
+            text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
+            box-shadow: inset 0 0 0.5em 0 deeppink, 0 0 0.5em deeppink;
+            /*background-image :url("../css/neon_paint.jpeg");*/
+            /*background-size: cover;*/
+            background-color: yellow;
+            color: #FF7B59;
+            display: block;
+            margin: 0 auto;
+            grid-area: footer;
+        }
+
+        .main-header{
+            grid-area: main;
+            margin: 0;
+            text-align: center;
+            color: yellow;
+            font-size: 1.8rem;
+            text-shadow: 0 0 1em hsl(150, 80%, 100%), 0 0 1em rgba(191, 51, 197, 0.98);
+        }
+
+        .body-header{
+            grid-area: header;
+            padding: 1em;
+            text-align: center;
+            color: yellow;
+            font-size: 1.2em;
+            text-shadow: 0 0 0.125em hsl(20, 50%, 100%), 0 0 0.45em #005B46;
+            /*-webkit-text-stroke: 1px yellow;*/
+            /*text-align: center;*/
+            /*border: #c00 dashed 1px*/
+        }
+
+        .fact-header{
+            grid-area: fact;
+            padding:1em;
+            text-align: center;
+            color: yellow;
+            font-size: 1.2rem;
+            text-shadow: 0 0 0.125em hsl(20, 50%, 100%), 0 0 0.25em #005B46;
+        }
+
+        .parkFAQ{
+            grid-area: faq;
+            margin: 1em;
+            /*margin-top: 1em;*/
+            padding: 1em;
+            text-align: center;
+        }
+
+        .planetary-parks-div{
+            grid-area: pandora;
+            /*margin-left: 1em;*/
+            /*margin-top:1em;*/
+            margin: 1em;
+            padding: .5em;
+            /*background: rgba(222, 222, 222, .3);*/
+            /*border-radius: 10px;*/
+        }
+
+        .arid-parks-div{
+            grid-area: arid;
+            margin: 1em;
+            /*margin-left: 1em;*/
+            /*margin-top: 1em;*/
+            padding: .5em;
+            /*background: rgba(222, 222, 222, .3);*/
+            /*border-radius: 10px;*/
+        }
+
+        .haven-parks-div{
+            grid-area: haven;
+            /*border: #c00 dashed 1px;*/
+            margin:1em;
+            /*margin-left: 1em;*/
+            /*margin-top: 1em;*/
+            padding: .5em;
+            /*background: rgba(222, 222, 222, .3);*/
+            /*border-radius: 10px;*/
+        }
+
+        .container{
+            display: grid;
+            margin:1em;
+            grid-template-areas:
+                'main main'
+                'header fact'
+                'faq pandora'
+                'faq arid'
+                'faq haven'
+                'footer footer'
+        }
+        .green-background {
+            background-color: green;
+        }
+
+        .highlight{
+            background: radial-gradient(circle, rgba(249,248,113,1) 0%, rgba(0,231,255,1) 35%, rgba(255,146,247,1) 100%);
+            color:#006B5F;
+            opacity: .70;
+            font-weight: 800;
+
+        }
+
+        .font-weight{
+            font-weight: 800;
+            font-size: 1.5em;
+            color: deeppink;
+            letter-spacing: 1px;
+            text-shadow: 0 0 1em hsl(346, 100%, 65%), 0 0 1em rgb(255, 210, 81);
+            -webkit-text-stroke: .2px #9C65A7;
+        }
+
+        /*.yellow-background{*/
+        /*    background-color: yellow;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+<div class="container">
+<!--    <h1>The Galactic Federation Park Systems:</h1>-->
+    <header class="main-header">
+        <h1>Galactic Federation Park System</h1>
+    </header>
+    <header class="body-header">
+        <h2>- Planetary Parks FAQs -</h2>
+        <hr>
+    </header>
+
+
+    <div class="parkFAQ">
+        <dl>
+            <dt class="quest">How many people visit the planetary parks?</dt>
+            <dd class="invisible">Total recreation visitors to the planetary parks in 2018: 318,211,833.</dd>
+
+            <dt class="quest">How old is the Federation's Planetary Park System?</dt>
+            <dd class="invisible">The Planetary Park Service was created by an act signed by Galactic President  Elon Musk on August 25, 2025.</dd>
+
+            <dt class="quest">How many employees are in the Federation's Planetary Park Service?</dt>
+            <dd class="invisible">Permanent, temporary, and seasonal employees: More than 20,000</dd>
+
+            <dt class="quest">What is the origin of the Federation's Planetary Park Service arrowhead?</dt>
+            <dd class="invisible">The arrowhead was authorized as the official Planetary Park Service emblem by the Secretary of the Interior on July 20, 2045.</dd>
+
+            <dt class="quest">How many areas are in the Planetary Park System?</dt>
+            <dd class="invisible">The system includes 419 areas covering more than 85 million acres in every planet, Milky Way System, Federation of Pluto, Independent Republic of Orion, and Florida.</dd>
+
+            <dt class="quest">What is the largest planetary park site?</dt>
+            <dd class="invisible">Wrangell-St. Elias Park and Preserve, Pandora, at 13.2 million acres.</dd>
+
+            <dt class="quest">What is the Federation's Planetary Park Service budget?</dt>
+            <dd class="invisible">Fiscal Year (FY) 2014 Enacted: $3.98 billion.</dd>
+
+            <dt class="quest">Can I bring my pet to a planetary park?</dt>
+            <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities.</dd>
+
+            <dt class="quest">How do I apply for a job with the Planetary Park Service?</dt>
+            <dd class="invisible">Planetary Park Service jobs, including both permanent and seasonal positions, are listed on GALACTIC-FEDJOBs.</dd>
+
+            <dt class="quest">What do I need to know about jumping into other dimension and breaking the sound barrier in federation parks?</dt>
+            <dd class="invisible">Before you head out, check with the planetary parks that you intend to visit. In many planetary parks, enabling your ship's hyperdrive is illegal. Where breaking the speed-light barrier is allowed, the Planetary Park Service regulates it.</dd>
+        </dl>
+    </div>
+
+    <header class="fact-header">
+        <h2>- Useless Info -</h2>
+        <hr>
+    </header>
+
+    <div class="planetary-parks-div" id="pandora">
+        <h3 class="head3" id="planetary-parks-heading">Pandora</h3>
+        <ul id="planetary-facts">
+            <li>Wasteland at the edge of human civilization.</li>
+            <li>Pandora's lone moon is named Elpis.</li>
+            <li>Major forms of fauna on Pandora aggressively protect their territory.</li>
+            <li>The terrain is criss-crossed with canyons, ravines, rocky outcrops and plateaus. </li>
+            <li>The majority of the vegetation present is similar in appearance to flora found in the south-western United States. </li>
+        </ul>
+    </div>
+
+    <div class="arid-parks-div" id="badlands">
+        <h3 class="head3" id="arid-heading">Arid Badlands</h3>
+        <ul id="arid-facts">
+            <li>The Arid Badlands, at one point in time, was a very productive industrial park owned by Dahl. </li>
+            <li>It is a vast area of rocky desert/savannah populated by various species of skags and rakks.</li>
+            <li>Much of the Badlands is controlled by bandit tribes.</li>
+            <li>The main area of note now is the nearly abandoned town of Fyrestone. </li>
+        </ul>
+    </div>
+
+    <div class="haven-parks-div" id="new-haven">
+        <h3 class="head3" id="haven-heading">Arid Badlands</h3>
+        <ul id="haven-facts">
+            <li>The inhabitants of Old Haven established New Haven in the wake of increasing bandit incursions on their former home. </li>
+            <li>The zone derives its name from the small town of New Haven which is situated on a natural rise along the east side of the junkyard.</li>
+            <li>It is composed of twisting canyons, rocky outcrops and ravines as well as piles of debris and pools of water.</li>
+            <li>I'm bored. This is Handsome Jack, And I'm Signing Off On The Hyperion!</li>
+        </ul>
+    </div>
+
+    <button class="neon-button" id="neon-button">Click For Petty Vandalism</button>
+</div>
+
+<script>
+    // 1. get a reference for the anchor
+    // const myToggle = document.querySelector("#inviso-toggle");
+    //
+    // // 2. add a click event listener to the anchor
+    // myToggle.addEventListener("click", function(event) {
+    //     // 3. in the event listener function, toggle the class invisible
+    //     // 3.a. get all the dds
+    //     // 3.b. for each dd, toggle its invisible class
+    //     const myDDs = document.querySelectorAll("dd");
+    //     myDDs.forEach(function(dd) {
+    //         dd.classList.toggle("invisible");
+    //     })
+    // });
+
+    // BONUS
+    // 1. target all dt elements
+    const neonButton = document.querySelector('#neon-button');
+    const myDTs = document.querySelectorAll("dt");
+    const h3Listener = document.querySelectorAll("h3");
+    // const liParent = document.querySelectorAll("li");
+
+    myDTs.forEach(function(dt) {
+        // 2. add a click event listener to each dt element
+        dt.addEventListener("click", function(event) {
+            // 3. when it is clicked, turn its background color to green
+            // this.style.backgroundColor = "green";
+            this.classList.toggle("green-background");
+        });
+    })
+
+    neonButton.addEventListener("click", function (event){
+       const myULs = document.querySelectorAll("ul")
+        myULs.forEach(function(ul){
+            ul.lastElementChild.classList.toggle("highlight");
+        })
+    })
+
+    h3Listener[0].addEventListener("click", function(event){
+        const boldLIs = h3Listener[0].nextElementSibling.firstElementChild;
+        boldLIs.classList.toggle("font-weight");
+    })
+    h3Listener[1].addEventListener("click", function(event){
+        const boldLIs = h3Listener[1].nextElementSibling.firstElementChild;
+        boldLIs.classList.toggle("font-weight");
+    })
+    h3Listener[2].addEventListener("click", function(event){
+        const boldLIs = h3Listener[2].nextElementSibling.firstElementChild;
+        boldLIs.classList.toggle("font-weight");
+    })
+
+    const lis = document.querySelectorAll("li");
+    lis.forEach(function(li){
+        li.addEventListener("click", function(event){
+            this.parentElement.firstElementChild.style.color = "aqua";
+        })
+    })
+
+
+
+
+
+
+
+
+
+    // liParent.addEventListener("click", function(event){
+    //     const fontColor = document.querySelectorAll("li")
+    //     fontColor.forEach(function(li){
+    //         li.parentElement.classList.toggle("font-color");
+    //     })
+    // })
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
