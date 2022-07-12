@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+(function() {
+    "use strict";
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+    async function getToolInventory(){
+        const inventory = await fetch("/data/inventory.json");
+        return await inventory.json();
+    }
+    getToolInventory().then(function(inventory){
+        console.log(inventory);
+        var inventoryAddition = document.querySelector("#insertProducts");
+        for (let i = 0; i < inventory.length; i++){
+            // var cat = inventory[i].categories.join(" ")
+            console.log(inventory[i].title)
+            inventoryAddition.innerHTML += "<tr>" +
+                "<td>" + inventory[i].title +"</td>" +
+                "<td>"+ inventory[i].quantity +"</td>" +
+                "<td>" + inventory[i].price + "</td>" +
+                "<td>" + inventory[i].categories.join(", ")+ "</td>" +
+                "</tr>"
+        }
+    });
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+    // const inventoryAddition = document.getElementById("#insertProducts");
+    // for (let i = 0; i < inventoryAddition.length; i++){
+    //     return
+    // }
+
+
+
+
+
+
+
+})();
+
+</script>
+
+</body>
+</html>
