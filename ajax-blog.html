@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <title>Blog Vibes</title>
     <style>
@@ -18,6 +18,11 @@
          text-align: center
      }
 
+
+     hr{
+         line-height: 10px;
+     }
+
      .content-header{
          font-size: 25px;
          text-shadow: 5px 5px 3px #A85D69;
@@ -27,10 +32,6 @@
          text-align: left;
 
          /*-webkit-text-stroke: .1px #A85D69 ;*/
-     }
-
-     hr{
-         line-height: 10px;
      }
 
      .post-body{
@@ -54,26 +55,24 @@
          text-align: right;
      }
 
-
     </style>
 </head>
-<body>
-    <div class="intro">
-        <div class="content-header">
-            <h1>LATE-NIGHT VIBES:</h1>
-            <h4>A Blog For The Sleepless</h4>
+    <body>
+        <div class="intro">
+            <div class="content-header">
+                <h1>LATE-NIGHT VIBES:</h1>
+                <h4>A Blog For The Sleepless</h4>
+            </div>
         </div>
-    </div>
 
-   <hr>
+        <hr>
 
+        <div class= "post-body" id="posts"></div>
 
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-            <div class= "post-body" id="posts"></div>
+        <script>
 
-
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script>
         (function() {
             "use strict";
             // TODO: Create an AJAX GET request for the file under data/inventory.json
@@ -96,8 +95,9 @@
                         "</div>"
                 }
             });
-
         })();
+
     </script>
-</body>
+
+    </body>
 </html>
