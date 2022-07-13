@@ -23,6 +23,12 @@
          line-height: 10px;
      }
 
+     /*.intro{*/
+     /*    display: grid;*/
+     /*    grid-template-areas:*/
+     /*       'blogs blogs blogs';*/
+     /*}*/
+
      .content-header{
          font-size: 25px;
          text-shadow: 5px 5px 3px #A85D69;
@@ -38,7 +44,7 @@
          background-color: rgba(117,224,230,0.53);
          color: #684259;
          -webkit-text-stroke: .5px #A85D69 ;
-         /*line-height: 1.2px;*/
+
      }
 
      .para{
@@ -83,16 +89,21 @@
 
             getBlogPost().then(function(postOne){
                 console.log(postOne);
-                var postReturn = document.querySelector("#posts");
+                let postReturn = document.querySelector("#posts");
                 for (let i = 0; i < postOne.length; i++){
                     // var cat = inventory[i].categories.join(" ")
                     console.log(postOne[i].title)
                     postReturn.innerHTML += "<div class='posts'>" +
+                        "<div class='body'>" +
                         "<h1>" + postOne[i].title +"</h1>" +
                         "<p class='para'>"+ postOne[i].content +"</p>" +
+                        "</div>" +
+                        "<div class='sub-content'>" +
                         "<h3 class='theme'>" + "Themes: " + postOne[i].categories.join(", ")+ "</h3>" +
-                        "<h4>" + "Date of Publication: " + postOne[i].date + "</h4>" +
+                        "<p>" + "Date of Publication: " + postOne[i].date + "</p>" +
+                        "</div>" +
                         "</div>"
+
                 }
             });
         })();
