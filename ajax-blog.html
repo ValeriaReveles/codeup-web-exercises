@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Vibes</title>
+    <style>
+     html{
+         height: 100%;
+         overflow: hidden;
+         min-height: 100%;
+     }
+     body{
+         font-family: Beorita, sans-serif;
+         letter-spacing: 1px;
+         word-spacing: 2px;
+         background-image: url("photos/lazy.jpeg");
+         color: #684259;
+         text-align: center
+     }
+
+     .content-header{
+         font-size: 25px;
+         text-shadow: 5px 5px 3px #A85D69;
+         color: #B0E0E6;
+         font-weight: bold;
+         /*color: #DE8468;*/
+         text-align: left;
+
+         /*-webkit-text-stroke: .1px #A85D69 ;*/
+     }
+
+     hr{
+         line-height: 10px;
+     }
+
+     .post-body{
+         background-color: rgba(117,224,230,0.53);
+         color: #684259;
+         -webkit-text-stroke: .5px #A85D69 ;
+         /*line-height: 1.2px;*/
+     }
+
+     .para{
+         line-height: 1.3;
+         background-color: rgba(240, 195, 221, 0.35 );
+
+     }
+
+     #posts h3{
+         text-align: left;
+     }
+
+     #posts h4{
+         text-align: right;
+     }
+
+
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <div class="content-header">
+            <h1>LATE-NIGHT VIBES:</h1>
+            <h4>A Blog For The Sleepless</h4>
+        </div>
+    </div>
+
+   <hr>
+
+
+
+            <div class= "post-body" id="posts"></div>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        (function() {
+            "use strict";
+            // TODO: Create an AJAX GET request for the file under data/inventory.json
+            async function getBlogPost() {
+                const postOne = await fetch("/data/blog.json");
+                return await postOne.json();
+            }
+
+            getBlogPost().then(function(postOne){
+                console.log(postOne);
+                var postReturn = document.querySelector("#posts");
+                for (let i = 0; i < postOne.length; i++){
+                    // var cat = inventory[i].categories.join(" ")
+                    console.log(postOne[i].title)
+                    postReturn.innerHTML += "<div class='posts'>" +
+                        "<h1>" + postOne[i].title +"</h1>" +
+                        "<p class='para'>"+ postOne[i].content +"</p>" +
+                        "<h3 class='theme'>" + "Themes: " + postOne[i].categories.join(", ")+ "</h3>" +
+                        "<h4>" + "Date of Publication: " + postOne[i].date + "</h4>" +
+                        "</div>"
+                }
+            });
+
+        })();
+    </script>
+</body>
+</html>
