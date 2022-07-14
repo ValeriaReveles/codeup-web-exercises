@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>The Chow Down!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+<button id="zoom-in">Closer Look!</button>
+<button id="drop-marker">Drop Marker!</button>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<!-- Custom JS -->
+<script>
+    (async function() {
+
+        mapboxgl.accessToken = MAPBOX_API_KEY;
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 10,
+            // zoom: [5, 15, 20],
+            center: [-98.4916, 29.4252]
+        });
+
+        function geocode(address, token = MAPBOX_API_KEY) {
+            var baseUrl = 'https://api.mapbox.com';
+            var endPoint = '/geocoding/v5/mapbox.places/';
+            return fetch(baseUrl + endPoint + encodeURIComponent(address) + '.json' + "?" + 'access_token=' + token)
+                .then(function(res) {
+                    return res.json();
+                    // to get all the data from the request, comment out the following three lines...
+                }).then(function(data) {
+                    console.log(data);
+                    return data.features[0].center;
+                });
+        }
+
+        function reverseGeocode(coordinates, token = MAPBOX_API_KEY) {
+            var baseUrl = 'https://api.mapbox.com';
+            var endPoint = '/geocoding/v5/mapbox.places/';
+            return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+                .then(function(res) {
+                    return res.json();
+                })
+                // to get all the data from the request, comment out the following three lines...
+                .then(function(data) {
+                    return data.features[0].place_name;
+                });
+        }
+
+        // Geocode to get zoom in on a location using the address
+        geocode("602 Avenue A, San Antonio, TX 78215", MAPBOX_API_KEY).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(15);
+        });
+
+        // let qualityDaughter = {
+        //     address: "602 Avenue A, San Antonio, TX 78215",
+        //     popupHTML: "<p>Best Rated Restaurant in Town.</p>"
+        // };
+
+        let coords = await geocode("Our Quality Daughter");
+        console.log(coords);
+
+        const daughterMarker = new mapboxgl.Marker();
+        daughterMarker.setLngLat(coords);
+        daughterMarker.addTo(map);
+
+        // // when the zoom in button is clicked, decrease the map's zoom level
+        const zoomIn = document.querySelector("#zoom-in");
+        zoomIn.addEventListener("click", function (event) {
+            let currentZoom = map.getZoom();
+            currentZoom++;
+            map.setZoom(currentZoom);
+        });
+        //
+        document.querySelector("#drop-marker").addEventListener("click", function (event) {
+            // add a popup to this
+            let popup = new mapboxgl.Popup();
+            popup.setLngLat([-98, 28])
+            popup.setHTML("<h1>Best Rated Restaurant In Town!</h1><img src='photos/dumpling.webp'>")
+
+            let marker = new mapboxgl.Marker();
+
+            marker.setPopup(popup);
+            marker.setLngLat([-98.479238, 29.441465]);
+            marker.addTo(map);
+
+        });
+
+
+
+
+        // function placeMarkerAndPopup(qualityDaughter, MAPBOX_API_KEY, map) {
+        //     geocode(qualityDaughter.address, MAPBOX_API_KEY).then(function(coordinates) {
+        //         let popup = new mapboxgl.Popup()
+        //             .setHTML(qualityDaughter.popupHTML);
+        //         let marker = new mapboxgl.Marker()
+        //             .setLngLat(coordinates)
+        //             .addTo(map)
+        //             .setPopup(popup);
+        //         popup.addTo(map);
+        //     });
+        // }
+
+        // placeMarkerAndPopup(qualityDaughter, MAPBOX_API_KEY, map);
+
+    })();
+
+</script>
+</body>
+</html>
