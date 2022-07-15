@@ -30,14 +30,14 @@
         h1{
             text-align: center;
             font-size: 90px;
-            margin: 30px;
+            margin: 10px;
             padding: 0;
-            -webkit-text-stroke: 1px #FF1493;
+            -webkit-text-stroke: 1px #ec2f95;
 
         }
         .buttons{
             text-align: center;
-            margin-top: 50px;
+            /*margin-top: 50px;*/
         }
 
         .zoom {
@@ -52,7 +52,7 @@
             letter-spacing: 2px;
             position:relative;
             overflow:hidden;
-            margin: 0 100px;
+            margin: 0 30px;
         }
 
         .zoom:before {
@@ -84,7 +84,7 @@
             letter-spacing: 2px;
             position:relative;
             overflow:hidden;
-            margin: 0 100px;
+            margin: 0 30px;
         }
 
         .marker:before {
@@ -109,8 +109,8 @@
             /* the width and height may be set to any size */
             width: 85vw;
             height: 70vh;
-            margin: 50px auto;
-            border: solid 5.5px navajowhite;
+            margin: 20px auto;
+            border: solid 5.5px lightpink;
             /*position: relative;*/
             /*bottom: 10px;*/
             border-radius: 20px;
@@ -194,127 +194,76 @@
         // needs address or coordinates, not name of establishment:
         let coords = await geocode("602 Avenue A, San Antonio, TX 78215");
         let coords2 = await geocode("14395 Blanco Rd, San Antonio, TX 78216");
-        let coords3 = await geocode("Piranha Izakaya");
-        console.log(coords);
-        console.log(coords2);
-        console.log(coords3);
+        let coords3 = await geocode("260 E Basse Rd, San Antonio, TX 78209");
+        // console.log(coords);
+        // console.log(coords2);
+        // console.log(coords3);
 
-        // created marker for first restaurant
+
+        // created array for restaurant markers:
+
+        var restaurants = [];
         var marker1 = new mapboxgl.Marker()
-            .setLngLat(coords)
-            .addTo(map);
-
-        // code to set up a popup to marker dropped:
-        // do not need coordinates if attaching popup to marker
+            .setLngLat(coords);
         var popup1 = new mapboxgl.Popup()
-            .setHTML("<p>Best in Town!</p>")
-        // need to call popup, use variable marker is stored in and add the popup setup
-        marker1.setPopup(popup1)
+            .setHTML("<h4 style='font-family: Burmegouls, sans-serif; text-align: center;'>Best in Town!</h4><img src='photos/ramen.jpeg'>")
+        marker1.setPopup(popup1);
+        restaurants.push(marker1)
 
+        var marker2 = new mapboxgl.Marker()
+            .setLngLat(coords2);
+        var popup2 = new mapboxgl.Popup()
+            .setHTML("<h4 style='font-family: Burmegouls, sans-serif; text-align: center;'>Authentic Japanese Cuisine!</h4><img src='photos/bowl.png'>")
+        marker2.setPopup(popup2);
+        restaurants.push(marker2)
 
-        //setup of event listeners for buttons:
+        var marker3 = new mapboxgl.Marker()
+            .setLngLat(coords3);
+        var popup3 = new mapboxgl.Popup()
+            .setHTML("<h4 style='font-family: Burmegouls, sans-serif; text-align: center;'>Great Food, Even Better Drinks!</h4><img src='photos/food-bowl.jpeg'>")
+        marker3.setPopup(popup3);
+        restaurants.push(marker3)
 
-        // // when the zoom in button is clicked, decrease the map's zoom level
-        const markerDrop = document.querySelector("#drop-marker").addEventListener("click", function (event){
-            return popup1;
-            console.log(pop1);
+        document.querySelector("#drop-marker").addEventListener("click", function (event) {
+            restaurants.forEach(function (marker) {
+                marker.addTo(map);
+            })
         })
 
 
 
+        // created marker for first restaurant:
+        // moved to event listener function for button
+        // var marker1 = new mapboxgl.Marker()
+        //     .setLngLat(coords)
+        //     .addTo(map);
+
+        // code to set up a popup to marker dropped:
+        // (do not need coordinates if attaching popup to marker,
+        // moved to event listener for marker button)
+        // var popup1 = new mapboxgl.Popup()
+        //     .setHTML("<p>Best in Town!</p>")
+        // // need to call popup, use variable marker is stored in and add the popup setup
+        // marker1.setPopup(popup1);
+
+
+        //setup of event listeners for buttons:
+
+        // // when button is clicked, drop marker created
+        // const markerDrop = document.querySelector("#drop-marker").addEventListener("click", function (event){
+        //     return popup1;
+        //     console.log(pop1);
+        // })
+
+
+        // // when the zoom in button is clicked, decrease the map's zoom level
         const zoomIn = document.querySelector("#zoom-in");
         zoomIn.addEventListener("click", function (event) {
             let currentZoom = map.getZoom();
             currentZoom++;
             map.setZoom(currentZoom);
         });
-        //
-        // var restaurants = ["602 Avenue A, San Antonio, TX 78215","14395 Blanco Rd, San Antonio, TX 78216","13802 Embassy Row, San Antonio, TX 78216"]
-        var restaurants = [
-            {
-                name: "Our Quality Daughter",
-                address: "602 Avenue A, San Antonio, TX 78215",
-                fact: "Best Restaurant in Town",
-            },
-            {
-                name: "Ito Ramen",
-                address:"14395 Blanco Rd, San Antonio, TX 78216",
-                fact: "Authentic Japanese Cuisine",
-            },
-            {
-                name: "Piranha Izayaka",
-                address:"260 E Basse Rd, San Antonio, TX 78209",
-                fact: "Great Food, Even Better Drinks"
 
-            }
-        ];
-
-        console.log(restaurants);
-
-        // document.querySelector("#drop-marker").addEventListener("click", function (event) {
-        //     // add a popup to this
-        //     // function placeMarkerAndPopup(restaurants, token, map){}
-        //
-        //     restaurants.forEach(function(input) {
-        //         geocode(input, MAPBOX_API_KEY).then(function (results) {
-        //             let popup = new mapboxgl.Popup();
-        //             popup.setLngLat(results)
-        //             popup.setHTML("<h4 style='font-family: Burmegouls, sans-serif; text-align: center;'>Restaurant</h4><img src='photos/ramen.jpeg'>")
-        //
-        //             let marker = new mapboxgl.Marker();
-        //             marker.setPopup(popup);
-        //             marker.setLngLat(results);
-        //             marker.addTo(map);
-        //         })
-        //     });
-
-        // geocode(restaurants[0].address, MAPBOX_API_KEY).then(function(coordinates) {
-        //     let popup = new mapboxgl.Popup()
-        //         .setHTML(restaurants.popupHTML);
-        //     let marker = new mapboxgl.Marker()
-        //         .setLngLat(coordinates)
-        //         .addTo(map)
-        //         .setPopup(popup);
-        //     popup.addTo(map);
-        // });
-
-
-        // geocode().then(function(restaurants){
-        //     console.log(postOne);
-        //     let postReturn = document.querySelector("#posts");
-        //     for (let i = 0; i < postOne.length; i++){
-        //         // var cat = inventory[i].categories.join(" ")
-        //         console.log(postOne[i].title)
-        //         postReturn.innerHTML += "<div class='posts'>" +
-        //             "<div class='body'>" +
-        //             "<h1>" + postOne[i].title +"</h1>" +
-        //             "<p class='para'>"+ postOne[i].content +"</p>" +
-        //             "</div>" +
-        //             "<div class='sub-content'>" +
-        //             "<h3 class='theme'>" + "Themes: " + postOne[i].categories.join(", ")+ "</h3>" +
-        //             "<p>" + "Date of Publication: " + postOne[i].date + "</p>" +
-        //             "</div>" +
-        //             "</div>"
-        //
-        //     }
-        // });
-
-        // });
-
-
-        // function placeMarkerAndPopup(qualityDaughter, MAPBOX_API_KEY, map) {
-        //     geocode(qualityDaughter.address, MAPBOX_API_KEY).then(function(coordinates) {
-        //         let popup = new mapboxgl.Popup()
-        //             .setHTML(qualityDaughter.popupHTML);
-        //         let marker = new mapboxgl.Marker()
-        //             .setLngLat(coordinates)
-        //             .addTo(map)
-        //             .setPopup(popup);
-        //         popup.addTo(map);
-        //     });
-        // }
-
-        // placeMarkerAndPopup(qualityDaughter, MAPBOX_API_KEY, map);
 
     })();
 
