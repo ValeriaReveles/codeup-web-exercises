@@ -7,8 +7,17 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <!-- Custom CSS -->
     <style>
+        html{
+            box-sizing: border-box;
+        }
+
+        *,*::before, *::after{
+            box-sizing: inherit;
+        }
 
         body{
+            margin: 0;
+            padding:0;
             width: 100vw;
             height: 100vh;
             background-image: url("https://cdn.shopify.com/s/files/1/1083/2612/articles/unnamed_b6640cb7-d196-4d08-948c-51f9bb8c0dd9_2000x.jpg?v=1588624306");
@@ -20,14 +29,15 @@
 
         h1{
             text-align: center;
-            font-size: 80px;
-            margin: 0;
+            font-size: 90px;
+            margin: 30px;
             padding: 0;
             -webkit-text-stroke: 1px #FF1493;
 
         }
         .buttons{
             text-align: center;
+            margin-top: 50px;
         }
 
         .zoom {
@@ -42,7 +52,7 @@
             letter-spacing: 2px;
             position:relative;
             overflow:hidden;
-            margin: 0 20px;
+            margin: 0 100px;
         }
 
         .zoom:before {
@@ -69,12 +79,12 @@
             text-align: center;
             display: inline-block;
             padding: 15px 40px;
-            border: 3px solid #D34D94;
+            border: 3.5px solid hotpink;
             cursor: pointer;
             letter-spacing: 2px;
             position:relative;
             overflow:hidden;
-            margin: 0 20px;
+            margin: 0 100px;
         }
 
         .marker:before {
@@ -97,14 +107,14 @@
 
         #map {
             /* the width and height may be set to any size */
-            width: 80%;
-            height: 500px;
-            margin: 20px auto;
-            border: solid 5px #FF4A73;
-            border-radius: 10px;
+            width: 85vw;
+            height: 70vh;
+            margin: 50px auto;
+            border: solid 5.5px navajowhite;
+            /*position: relative;*/
+            /*bottom: 10px;*/
+            border-radius: 20px;
         }
-
-
 
 
 
@@ -117,22 +127,23 @@
 <h1>The Chow Down!</h1>
 
 <!-- The HTML element that serves as the Mapbox container -->
-    <div class="container">
-        <div id='map'></div>
-    </div>
+<div class="container">
+    <div id='map'></div>
+</div>
 
-    <div class="buttons" id="buttons">
-        <button class="zoom" id="zoom-in">Closer Look!</button>
-        <button class="marker" id="drop-marker">Drop Marker!</button>
-    </div>
+<div class="buttons" id="buttons">
+    <button class="zoom" id="zoom-in">Closer Look!</button>
+    <button class="marker" id="drop-marker">Drop Marker!</button>
+</div>
 
 <!-- Mapbox JS -->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-    <script src="js/keys.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
 <!-- Custom JS -->
-    <script>
+<script>
     (async function() {
 
+        // setting up key and mapbox
         mapboxgl.accessToken = MAPBOX_API_KEY;
         const map = new mapboxgl.Map({
             container: 'map',
@@ -142,6 +153,8 @@
             center: [-98.4916, 29.4252]
         });
 
+        // following functions provided by mapbox to load information from API:
+
         function geocode(address, token = MAPBOX_API_KEY) {
             var baseUrl = 'https://api.mapbox.com';
             var endPoint = '/geocoding/v5/mapbox.places/';
@@ -150,7 +163,7 @@
                     return res.json();
                     // to get all the data from the request, comment out the following three lines...
                 }).then(function(data) {
-                    console.log(data);
+                    // console.log(data);
                     return data.features[0].center;
                 });
         }
@@ -167,28 +180,48 @@
                     return data.features[0].place_name;
                 });
         }
-        // Geocode to get zoom in on a location using the address
 
-        // geocode(, MAPBOX_API_KEY).then(function(result) {
-        //     console.log(result);
-        //     map.setCenter(result);
-        //     map.setZoom(10);
-        // });
+        // My JS code to get map markers and popups:
 
-        // let qualityDaughter = {
-        //     address: "602 Avenue A, San Antonio, TX 78215",
-        //     popupHTML: "<p>Best Rated Restaurant in Town.</p>"
-        // };
+        // the  geocode method helper function to log the coordinates of place and then recenter the map to focus on place:
+        geocode("602 Avenue A, San Antonio, TX 78215", MAPBOX_API_KEY).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(10);
+        });
 
-        let coords = await geocode("Our Quality Daughter");
+        // Way to get coordinates from API instead of googling:
+        // needs address or coordinates, not name of establishment:
+        let coords = await geocode("602 Avenue A, San Antonio, TX 78215");
+        let coords2 = await geocode("14395 Blanco Rd, San Antonio, TX 78216");
+        let coords3 = await geocode("Piranha Izakaya");
         console.log(coords);
+        console.log(coords2);
+        console.log(coords3);
+
+        // created marker for first restaurant
+        var marker1 = new mapboxgl.Marker()
+            .setLngLat(coords)
+            .addTo(map);
+
+        // code to set up a popup to marker dropped:
+        // do not need coordinates if attaching popup to marker
+        var popup1 = new mapboxgl.Popup()
+            .setHTML("<p>Best in Town!</p>")
+        // need to call popup, use variable marker is stored in and add the popup setup
+        marker1.setPopup(popup1)
 
 
-        const daughterMarker = new mapboxgl.Marker();
-        daughterMarker.setLngLat(coords);
-        daughterMarker.addTo(map);
+        //setup of event listeners for buttons:
 
         // // when the zoom in button is clicked, decrease the map's zoom level
+        const markerDrop = document.querySelector("#drop-marker").addEventListener("click", function (event){
+            return popup1;
+            console.log(pop1);
+        })
+
+
+
         const zoomIn = document.querySelector("#zoom-in");
         zoomIn.addEventListener("click", function (event) {
             let currentZoom = map.getZoom();
@@ -209,12 +242,12 @@
                 fact: "Authentic Japanese Cuisine",
             },
             {
-                name: "El Buccanero",
-                address:"13802 Embassy Row, San Antonio, TX 78216",
-                fact: "Micheladas on Point"
+                name: "Piranha Izayaka",
+                address:"260 E Basse Rd, San Antonio, TX 78209",
+                fact: "Great Food, Even Better Drinks"
 
             }
-           ];
+        ];
 
         console.log(restaurants);
 
@@ -235,36 +268,36 @@
         //         })
         //     });
 
-                // geocode(restaurants[0].address, MAPBOX_API_KEY).then(function(coordinates) {
-                //     let popup = new mapboxgl.Popup()
-                //         .setHTML(restaurants.popupHTML);
-                //     let marker = new mapboxgl.Marker()
-                //         .setLngLat(coordinates)
-                //         .addTo(map)
-                //         .setPopup(popup);
-                //     popup.addTo(map);
-                // });
+        // geocode(restaurants[0].address, MAPBOX_API_KEY).then(function(coordinates) {
+        //     let popup = new mapboxgl.Popup()
+        //         .setHTML(restaurants.popupHTML);
+        //     let marker = new mapboxgl.Marker()
+        //         .setLngLat(coordinates)
+        //         .addTo(map)
+        //         .setPopup(popup);
+        //     popup.addTo(map);
+        // });
 
 
-            // geocode().then(function(restaurants){
-            //     console.log(postOne);
-            //     let postReturn = document.querySelector("#posts");
-            //     for (let i = 0; i < postOne.length; i++){
-            //         // var cat = inventory[i].categories.join(" ")
-            //         console.log(postOne[i].title)
-            //         postReturn.innerHTML += "<div class='posts'>" +
-            //             "<div class='body'>" +
-            //             "<h1>" + postOne[i].title +"</h1>" +
-            //             "<p class='para'>"+ postOne[i].content +"</p>" +
-            //             "</div>" +
-            //             "<div class='sub-content'>" +
-            //             "<h3 class='theme'>" + "Themes: " + postOne[i].categories.join(", ")+ "</h3>" +
-            //             "<p>" + "Date of Publication: " + postOne[i].date + "</p>" +
-            //             "</div>" +
-            //             "</div>"
-            //
-            //     }
-            // });
+        // geocode().then(function(restaurants){
+        //     console.log(postOne);
+        //     let postReturn = document.querySelector("#posts");
+        //     for (let i = 0; i < postOne.length; i++){
+        //         // var cat = inventory[i].categories.join(" ")
+        //         console.log(postOne[i].title)
+        //         postReturn.innerHTML += "<div class='posts'>" +
+        //             "<div class='body'>" +
+        //             "<h1>" + postOne[i].title +"</h1>" +
+        //             "<p class='para'>"+ postOne[i].content +"</p>" +
+        //             "</div>" +
+        //             "<div class='sub-content'>" +
+        //             "<h3 class='theme'>" + "Themes: " + postOne[i].categories.join(", ")+ "</h3>" +
+        //             "<p>" + "Date of Publication: " + postOne[i].date + "</p>" +
+        //             "</div>" +
+        //             "</div>"
+        //
+        //     }
+        // });
 
         // });
 
