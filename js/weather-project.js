@@ -21,8 +21,8 @@ window.addEventListener("load", () => {
                 })
                 .then((data) => {
                     for (let i = 0; i < 5; i++) {
-                        temperature[i].textContent = data.daily[i].temp.day + " F";
-                        summary[i].textContent = data.daily[i].weather[0].description;
+                        temperature[i].textContent = data.daily[i].temp.day + " °F";
+                        summary[i].textContent = data.daily[i].weather[0].description.toUpperCase();
                         // loc.textContent = data.name + "," + data.sys.country;
                         let icon1 = data.daily[i].weather[0].icon;
                         icon[i].innerHTML =
