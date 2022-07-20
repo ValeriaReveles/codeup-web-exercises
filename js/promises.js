@@ -2,6 +2,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     (async function() {
 
+        //instead of putting it in fetch command, put all your properties in a variable you can call into your function. The fetch
+        //request will be inside the function.
+
         const options = {
             method: 'GET',
             headers: {
@@ -26,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
         //   console.log("This always executes.");
         // });
 
+
+        //simplified function to fetch API and data wanted, in this case users.
+
         function getGithubUsernames() {
             return fetch('https://api.github.com/users', options)
                 .then(response => response.json())
@@ -33,7 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.warn("ERROR: " + error);
                 });
         }
-        //
+
+
+        //created a separate function that takes in a username as a parameter and displays the usernames last commit and other info.
         function getGithubUsernameLastCommit(username) {
             return fetch(`https://api.github.com/users/${username}/events/public`, options)
                 .then(response => response.json())
@@ -42,17 +50,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         }
 
-// later on...
+
+
+    //put my functions into a constant in order to call them.
 
         const users = await getGithubUsernames();
 
         const username = await getGithubUsernameLastCommit();
 
+    //consoled logged them to see the outcome and if the worked.
         console.log(username);
 
         console.log(users);
 
-        // resolve and reject
+
+
+        // *Promises always have a resolve and reject parameters and outcomes to include pending for promises that are still loading.
 
         // show an example of
         // mess with the url. why doesn't catch get called? what does get caught?
