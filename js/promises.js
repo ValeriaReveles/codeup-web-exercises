@@ -56,12 +56,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const users = await getGithubUsernames();
 
-        const username = await getGithubUsernameLastCommit();
+        const username = await getGithubUsernameLastCommit('ValeriaReveles');
 
     //consoled logged them to see the outcome and if the worked.
         console.log(username);
 
         console.log(users);
+
+
+    //Part 2: create your own promise.
+
 
 
 
