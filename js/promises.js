@@ -2,13 +2,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     (async function() {
 
+        // created HTML elements via DOM manipulation for more practice.
+
         //instead of putting it in fetch command, put all your properties in a variable you can call into your function. The fetch
         //request will be inside the function.
 
         const options = {
             method: 'GET',
             headers: {
-                "Authorization": "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"
+                "Authorization": GITHUB_TOKEN
             }
         };
 
