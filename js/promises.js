@@ -14,6 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         };
 
+        //declared consts for search bar, button, and users div:
+        const input = document.querySelector("#input");
+        const search = document.querySelector("#search");
+        const users = document.querySelector("#users");
+
+        //undefined variable for user:
+        let user;
+        //add event listener to input(search bar):
+        input.addEventListener("input", () => console.log(input.value));
+
+
         // basic fetch example with catch
         // fetch('https://api.github.com/users', options)
         //     .then(function(response) {

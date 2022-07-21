@@ -14,16 +14,23 @@ body{
     overflow: hidden;
     font-family: "Vegapunk", sans-serif ;
 }
-
+ h1{
+     font-size: 5rem;
+ }
 .content{
     position: absolute;
     top: 150px;
     /*position: relative;*/
-    width: 400px;
+    width: 65px;
     height: 50px;
     display: flex;
     /*justify-content: center;*/
     /*align-items: center;*/
+    transition: 0.5s;
+}
+
+.content:hover{
+    width: 400px;
 }
 .content:before{
     content: '';
@@ -38,6 +45,15 @@ body{
 }
 
 .content:after{
+    content: '';
+    position:absolute;
+    top: 0;
+    right: -1px;
+    width: 10px;
+    height: 100%;
+    background: #9d9d9d;
+    z-index: 1;
+    filter: blur(1px);
 
 }
 .shadow{
@@ -60,7 +76,7 @@ shadow:before{
 }
 
 .content input {
-    /*position: relative;*/
+    position: relative;
     width: 100%;
     height: 100%;
     border: none;
@@ -74,5 +90,25 @@ shadow:before{
     20px 20px 15px rgba(0,0,0,0.1),
     30px 30px 15px rgba(0,0,0,0.1),
     inset 1px 1px 2px #fff;
+}
+
+.content input::placeholder,
+.content input{
+    color: transparent;
+}
+
+.content:hover input::placeholder,
+.content:hover input {
+    color: #555;
+}
+
+ion-icon{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #555;
+    font-size: 1.5em;
+    cursor: pointer;
+
 }
 
