@@ -71,17 +71,32 @@ export default function router(URI) {
             uri: location.pathname,
             title: 'Loading...',
         },
-
         '/dogs': {
             returnView: DogFactsView,
-            state: {},
+            state: {
+                dogFacts: {
+                    url: "https://dogfacts.fulgentcorp.com:12250/v1/facts?random=true&limit=10",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': DOG_QUOTE_API_KEY
+                    }
+                }
+            },
             uri: '/dogs',
             title: 'Dog Facts',
             viewEvent: DogFactsEvents
         },
         '/quotes': {
             returnView: QuotesView,
-            state: {},
+            state: {
+                quotes: {
+                    url: "https://dogfacts.fulgentcorp.com:12250/v1/quotes?random=true&limit=10",
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': DOG_QUOTE_API_KEY
+                    }
+                }
+            },
             uri: '/quotes',
             title: 'Quotes for the Soul',
             viewEvent: QuotesViewEvents

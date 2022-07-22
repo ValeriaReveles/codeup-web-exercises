@@ -1,15 +1,40 @@
+:root{
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary:  #232322e;
+    --bg-secondary: #141418;
+    font-size: 16px;
+}
+
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    /*background: black;*/
+
 }
 
 body{
     font-family: Beorita, sans-serif;
 }
 
+body::-webkit-scrollbar{
+    width: 1rem;
+}
+body::-webkit-scrollbar-track{
+    background: hotpink;
+}
+body::-webkit-scrollbar-thumb{
+    background: purple;
+}
+.container-fluid{
+    margin-left: 5rem;
+    padding: 1rem;
+}
 /*.jalopy-nav{*/
-
+/*    width:5rem;*/
+/*    height:100vh;*/
+/*    position:fixed;*/
 /*}*/
 
 .center{
