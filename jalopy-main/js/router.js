@@ -10,6 +10,7 @@ import UserIndex, {UserEvents} from "./views/User.js";
 import Logout, {LogoutEvents} from "./views/Logout.js";
 import DogFactsView, {DogFactsEvents} from "./views/DogFacts.js";
 import QuotesView, {QuotesViewEvents} from "./views/Quotes.js";
+import InsertDogView, {InsertDogFactEvents} from "./views/AddDogFact.js";
 /**
  * Returns the route object for a specific route based on the given URI
  * @param URI
@@ -90,8 +91,8 @@ export default function router(URI) {
         '/quotes': {
             returnView:QuotesView,
             state: {
-                dogFacts: {
-                    url: "https://dogfacts.fulgentcorp.com:12250/v1/quotes?random=true&limit=10",
+                quotes: {
+                    url: "https://quotes.fulgentcorp.com:12250/v1/quotes?random=true&limit=10",
                     headers: {
                         'Accept': 'application/json',
                         'Authorization': DOG_QUOTE_API_KEY
@@ -101,7 +102,15 @@ export default function router(URI) {
             uri: '/quotes',
             title: 'Quotes for the Soul',
             viewEvent: QuotesViewEvents
-        }
+        },
+
+        '/insert-dog-fact': {
+            returnView: InsertDogView,
+            state: {},
+            uri: '/insert-dog-fact',
+            title: 'Insert Dog Fact',
+            viewEvent: InsertDogFactEvents
+        },
     };
 
     // if we see a URI with index.html then interpret that as a route for /
