@@ -86,14 +86,15 @@ export default function router(URI) {
             title: 'Dog Facts',
             viewEvent: DogFactsEvents
         },
+
         '/quotes': {
-            returnView: QuotesView,
+            returnView:QuotesView,
             state: {
-                quotes: {
+                dogFacts: {
                     url: "https://dogfacts.fulgentcorp.com:12250/v1/quotes?random=true&limit=10",
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': DOG_QUOTE_API_KEY
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': DOG_QUOTE_API_KEY
                     }
                 }
             },
